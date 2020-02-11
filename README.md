@@ -21,8 +21,11 @@ it's necessary to add extension pack for :
 	VboxManage controlvm "ubuntu-18_04" webcam attach .1
 ```
 **5. launch your linux machine and test the webcam with cheese:**
+
 **6. install code (VScode):** [VScode install ](https://linuxize.com/post/how-to-install-visual-studio-code-on-ubuntu-18-04/ "install vscode") 
+
 **7. install plugin: Easy Cpp Projects**
 ![Easy C++ projects ](./vscode.jpg   "easy CPP plugin in VScode")
+
 **8. Open folder vscode and test the code**
  
