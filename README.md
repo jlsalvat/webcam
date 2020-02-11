@@ -27,5 +27,12 @@ it's necessary to add extension pack for :
 **7. install plugin: Easy Cpp Projects**
 ![Easy C++ projects ](./vscode.jpg   "easy CPP plugin in VScode")
 
+**8. install library v4l2 for dev ** and verify what files have been installed  (you should see /usr/include/libv4l2.h) file that we will use in code
+
+```bash
+	sudo apt-get install libv4l-dev
+	dpkg -L libv4l-dev
+
+```
 **8. Open folder vscode and test the code**
  
