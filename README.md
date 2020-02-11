@@ -1,5 +1,6 @@
 ### use webcam in linux guest / windows host
 **1. we suppose you have installed Virtual Box on Windows 10 and add ubuntu 18.04 machine :**
+
 **2. You need to Install VirtualBox Extension Pack on Windows :** [Virtual Box Download ](https://www.virtualbox.org/wiki/Downloads"get last version of virtualbox and extension pack")   
 it's necessary to add extension pack for :
 - *Support for USB 2.0 and USB 3.0 devices.* USB devices such as network adapters, flash drives, hard disks, web cams etc., that are inserted into physical USB ports of a host machine can be attached to a virtual machine running on VirtualBox. As a result, you can use a physical USB device in a guest operating system (OS).
