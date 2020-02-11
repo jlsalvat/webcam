@@ -6,6 +6,7 @@ it's necessary to add extension pack for :
 - *Host webcam pass-through.* With this feature you can connect your host webcam to a guest machine. The advantage is that you can use a webcam which is not supported by the guest operating system of your VM.
 
 ![install extension pack ](./VirtualBox2.jpg  "add extension pack VM")
+
 **3. On windows 10 open cmd windows and list the webcams  :** the command is **VBoxManage list webcams**
 ```bash
 	c:\Program Files\Oracle\VirtualBox>VBoxManage list webcams
