@@ -24,15 +24,15 @@ it's necessary to add extension pack for :
 
 **6. install code (VScode):** [VScode install ](https://linuxize.com/post/how-to-install-visual-studio-code-on-ubuntu-18-04/ "install vscode") 
 
-**7. install plugin: Easy Cpp Projects**
+**7. install plugin: Easy Cpp Projects:**
 ![Easy C++ projects ](./vscode.jpg   "easy CPP plugin in VScode")
 
-**8. install library v4l2 for dev ** and verify what files have been installed  (you should see /usr/include/libv4l2.h) file that we will use in code
+**8. install library v4l2 for dev :**  and verify what files have been installed  (you should see /usr/include/libv4l2.h) file that we will use in code
 
 ```bash
 	sudo apt-get install libv4l-dev
 	dpkg -L libv4l-dev
 
 ```
-**8. Open folder vscode and test the code**
+**9. Open folder vscode and test the code**
  
