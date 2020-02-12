@@ -10,6 +10,7 @@
 #include <linux/videodev2.h>
 #include <libv4l2.h>
 #include <math.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 #define CLEAR(x) memset(&(x), 0, sizeof(x))
@@ -72,6 +73,22 @@ void grey_scale(struct buffer *image, struct rgb rgb_image)
         *(tab_image + i + 2) = value * 255;
     }
 }
+void modifie_alpha_beta(struct buffer *image, float alpha, int beta)
+{ 
+        char *tab_image = image->start;
+    for (size_t i = 0; i < (image->length); i ++) {
+        *(tab_image + i) = ((*(tab_image + i)*alpha+ beta)>255?255:(*(tab_image + i)*alpha+ beta));
+    }      
+}
+void modifie_gamma(struct buffer *image, double gamma)
+{ 
+        char *tab_image = image->start;
+    for (size_t i = 0; i < (image->length); i ++) {
+        *(tab_image + i) = (pow(((uint8_t)*(tab_image + i))/255.0,gamma)*255.0>255?255:pow(((uint8_t)*(tab_image + i))/255.0,gamma)*255.0);
+   }      
+}
+
+
 void rgb_filtre(struct buffer *image, struct rgb rgb_image, bool r, bool g, bool b)
 {
     char *tab_image = image->start;
@@ -91,8 +108,11 @@ void rgb_filtre(struct buffer *image, struct rgb rgb_image, bool r, bool g, bool
 void traitement(struct buffer *image)
 {
     struct rgb rgb_image;
-    rgb_image = createRGB(image);
-    grey_scale(image, rgb_image);
+
+   modifie_alpha_beta(image,1.2,40);
+    modifie_gamma(image,.5);
+    //rgb_image = createRGB(image);
+    //grey_scale(image, rgb_image);
     //rgb_filtre(image, rgb_image, false, true, false);
 }
 
