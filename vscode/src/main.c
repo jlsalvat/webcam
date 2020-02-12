@@ -73,6 +73,7 @@ void grey_scale(struct buffer *image, struct rgb rgb_image)
         *(tab_image + i + 2) = value * 255;
     }
 }
+//https://docs.opencv.org/3.4/d3/dc1/tutorial_basic_linear_transform.html
 void modifie_alpha_beta(struct buffer *image, float alpha, int beta)
 { 
         char *tab_image = image->start;
