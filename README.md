@@ -113,15 +113,15 @@ We can go to [Opencv test](https://link.springer.com/chapter/10.1007/978-1-4302-
 	}
 	
 **Somme remarks :**  
-1. you will remark that file in .config\code\User\settings.json add includePath of opencv for intellisense. This file is create by code (Cf image)
-
+1. you will remark that file in .config\code\User\settings.json add includePath of opencv for intellisense. Copy configuration lines in this files open via Menu (File, Preferences, Settings, Extensions, Edit in settings.json) (Cf image). You must close and open VScode to active the changes : in alls projetcs intellisence will use /usr/local/incluse/opencv4 directory.
+```bash
 	{
 	    "C_Cpp.default.systemIncludePath": [
 	     "/usr/local/include/opencv4/"
 	  ],
 	  "files.autoSave": "afterDelay",
 	}
-
+```
 ![opencv change  ](./vscode.png  "changes for intellisense (opencv)")
 2. you will see how the Makefile has been changed for opencv compile
  
