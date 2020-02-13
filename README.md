@@ -1,4 +1,5 @@
-###Use webcam in linux guest / windows host in VScode
+# Use webcam in linux guest / windows host in VScode
+
 **1. we suppose you have installed Virtual Box on Windows 10 and add ubuntu 18.04 machine :**
 
 **2. You need to Install VirtualBox Extension Pack on Windows :** [Virtual Box Download ](https://www.virtualbox.org/wiki/Downloads " get last version of virtualbox and extension pack")   
@@ -34,8 +35,8 @@ it's necessary to add extension pack for :
 	dpkg -L libv4l-dev
 
 ```
-##A. test project 1 : vscode folder
-**A.1. Open folder vscode and test the code**
+# A. test project 1 : vscode folder
+**1. Open folder vscode and test the code**
 in file vscode/src/main.c we will open /dev/video0 file (webcam) and use functions in main.c
 
 	//we give en example of main : take picture of webcam input and write to file ppm.
@@ -120,7 +121,7 @@ We can go to [Opencv test](https://link.springer.com/chapter/10.1007/978-1-4302-
 	  ],
 	  "files.autoSave": "afterDelay",
 	}
-	
+
 ![opencv change  ](./vscode.png  "changes for intellisense (opencv)")
 2. you will see how the Makefile has been changed for opencv compile
  
