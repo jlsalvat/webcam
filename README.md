@@ -151,6 +151,15 @@ We can go to [Opencv test](https://link.springer.com/chapter/10.1007/978-1-4302-
 	
 	clean:
 		-rm $(BIN)/*
+		
+# Use webcam in  windows with visual studio
+**1. install visual studio comunity 2017 or 2019:**[Visual Studio Comunity 2019 ] (https://visualstudio.microsoft.com/fr/downloads/ " get VS 1019")  
+**2. install opencv in windows 10:**[opencv for windows ] (https://opencv.org/releases/ " get opencv")  
+**3. create console application in Visual Studio**
+**4. Configure your project to build opencv application**
+![Configure opencv project ](./visualStudioComunauty.png   "configure project")
+
+
 
 
 
