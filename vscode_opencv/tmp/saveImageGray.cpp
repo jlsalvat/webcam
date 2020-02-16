@@ -3,7 +3,7 @@ using namespace cv;
 using namespace std;
 int main()
 {
-VideoCapture cap(-1);
+VideoCapture cap(0);
 //check if the file was opened properly
 if(!cap.isOpened())
 {
