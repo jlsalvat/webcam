@@ -159,7 +159,6 @@ We can go to [Opencv test](https://link.springer.com/chapter/10.1007/978-1-4302-
 **4. Configure your project to build opencv application**
 with right clic on console application project you need to choose all configuration and x64 project before configuring Include and libs!
 
-![configure project x64](./configuration.jpg   "configure project x64")
 
 ![Configure opencv project ](./visualStudioComunauty.png   "configure project")
 
