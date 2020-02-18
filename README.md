@@ -68,6 +68,10 @@ in file vscode/src/main.c we will open /dev/video0 file (webcam) and use functio
 # B. use webcam in linux guest / windows host with opencv
 
 **B.1. install Opencv:** [Opencv install ](https://linuxize.com/post/how-to-install-opencv-on-ubuntu-18-04/  "install opencv in ubuntu 18_04 LTS") 
+**B.2. Edit /etc/ld.so.conf.d/opencv.conf and add /usr/local/lib to it:**
+
+	sudo gedit /etc/ld.so.conf.d/opencv.conf
+	sudo ldconfig
 
 **B.2. Open folder vscode_opencv and test the code**
 in file vscode_opencv/src/main.cpp you've got classifier test. But you can copy file saveImageGray.cpp from tmp/ to src and erase main.cpp. This code is quite identical of code from A.1 but with opencv framework.
