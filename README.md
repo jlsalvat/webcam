@@ -35,6 +35,8 @@ it's necessary to add extension pack for :
 	salvat@salvat-VirtualBox:~/Documents/VScodeTest$ code .
 ```
 
+**9. Create new project with easy cpp  :**
+![new C++ projects ](./easycpp1.jpg   "Create new CPP project for Linux")
 
 **8. install library v4l2 for dev :**  and verify what files have been installed  (you should see /usr/include/libv4l2.h) file that we will use in code
 
