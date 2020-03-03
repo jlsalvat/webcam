@@ -1,3 +1,4 @@
+  
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -88,21 +89,45 @@ void modifie_gamma(struct buffer *image, double gamma)
         *(tab_image + i) = (pow(((uint8_t)*(tab_image + i))/255.0,gamma)*255.0>255?255:pow(((uint8_t)*(tab_image + i))/255.0,gamma)*255.0);
    }      
 }
+void add_line(struct buffer *image, int size)
+{ 
+        char *tab_image = image->start;
+        int k=0;
+    for (size_t i = 0; i < (image->length); i += 3)
+    {
+        k++;
+        if(k<size){
+         *(tab_image + i) = 255; // R color
+        *(tab_image + i + 1) = 0; // G Color
+        *(tab_image + i + 2) = 0;  // B color
+        }   
+        else if(k<2*size){
+         *(tab_image + i) = 0; // R color
+        *(tab_image + i + 1) = 255; // G Color
+        *(tab_image + i + 2) = 0;  // B color
+        }        else if(k<3*size){
+         *(tab_image + i) = 0; // R color
+        *(tab_image + i + 1) = 0; // G Color
+        *(tab_image + i + 2) = 255;  // B color
+        }  
+        if(i%(640*3)==0)
+            k=0; 
+
+    }    
+}
 
 
-void rgb_filtre(struct buffer *image, struct rgb rgb_image, bool r, bool g, bool b)
+void rgb_filtre(struct buffer *image,  bool r, bool g, bool b)
 {
     char *tab_image = image->start;
-    memset(tab_image, 0, image->length);
-    int j;
-    for (size_t i = 0, j = 0; i < (image->length); i += 3, j++)
+    for (size_t i = 0; i < (image->length); i += 3)
     {
-        if (r)
-            *(tab_image + i) = *(rgb_image.r + j);
-        if (g)
-            *(tab_image + i + 1) = *(rgb_image.g + j);
-        if (b)
-            *(tab_image + i + 2) = *(rgb_image.b + j);
+        if (!r)
+            *(tab_image + i) = 0;
+        if (!g)
+            *(tab_image + i + 1) = 0;
+        if (!b)
+            *(tab_image + i + 2) = 0;
     }
 }
 
@@ -302,7 +327,9 @@ int main(int argc, char **argv)
     captureImage(fd, image);
     debug("SAVING TO in.ppm");
     saveppm("in.ppm", image);
-    traitement(&image);
+    //traitement(&image);
+    add_line(&image,50);
+    rgb_filtre(&image,false,true,true);
     debug("SAVING TO out.ppm");
     saveppm("out.ppm", image);
     v4l2_munmap(image.start, image.length);
