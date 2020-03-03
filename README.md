@@ -28,6 +28,14 @@ it's necessary to add extension pack for :
 **7. install plugin: Easy Cpp Projects:**
 ![Easy C++ projects ](./vscode.jpg   "easy CPP plugin in VScode")
 
+**8. Create directory, close and relaunch VScode in this directory  :**
+```bash
+	salvat@salvat-VirtualBox:~/Documents$ mkdir VScodeTest
+	salvat@salvat-VirtualBox:~/Documents$ cd VScodeTest/
+	salvat@salvat-VirtualBox:~/Documents/VScodeTest$ code .
+```
+
+
 **8. install library v4l2 for dev :**  and verify what files have been installed  (you should see /usr/include/libv4l2.h) file that we will use in code
 
 ```bash
