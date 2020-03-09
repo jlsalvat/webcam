@@ -110,6 +110,35 @@ You are ready to test program in vscode directory (in this github) (file main.c)
 
 ```
 
+**13. Copy content of vscode folder to your folder in Vscode. You need at minimum to copy main.c in src folder and the Makefile.** 
+compiler is gcc and  math et v4l2 lib has to be ad to your linker  
+*Makefile*
+```bash
+	CXX		  := gcc
+	CXX_FLAGS := -Wall -Wextra -ggdb
+
+	BIN		:= bin
+	SRC		:= src
+	INCLUDE	:= include
+	LIB		:= lib
+
+	LIBRARIES	:= -lm -lv4l2
+	EXECUTABLE	:= main
+
+
+	all: $(BIN)/$(EXECUTABLE)
+
+	run: clean all
+		clear
+		./$(BIN)/$(EXECUTABLE)
+
+	$(BIN)/$(EXECUTABLE): $(SRC)/*.c
+		$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
+
+	clean:
+		-rm $(BIN)/*
+```		
+
 # A. test project 1 : vscode folder
 **1. Open folder vscode and test the code**
 in file vscode/src/main.c we will open /dev/video0 file (webcam) and use functions in main.c
