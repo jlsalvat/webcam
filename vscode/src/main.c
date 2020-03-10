@@ -282,7 +282,7 @@ struct buffer initCapture(int fd, int width, int height)
     }
     image.width = format.fmt.pix.width;
     image.height = format.fmt.pix.height;
-    sprintf(debugMsg, "image width=%d, height=%d\n", image.width, image.height);
+    sprintf(debugMsg, "image width=%d, height=%d", image.width, image.height);
     debug(debugMsg);
     return image;
 }
