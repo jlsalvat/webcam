@@ -1,5 +1,3 @@
-#include <vector>
-
 #include <string>
 #include <iostream>
 
@@ -49,16 +47,20 @@ public:
 		_m = _m + (value / SEC_PER_MINUTE) % MINUTE_PER_HOUR;
 		_h = _h + value / (MINUTE_PER_HOUR*SEC_PER_MINUTE);
 		if (is_overflow())
-			throw string("error overflow ");
+			raz();
 		return *this;
 	}
 	Chrono& add_minute(int value){
 		_m += (_m+value)% MINUTE_PER_HOUR;
 		_h =_h + _m / MINUTE_PER_HOUR;
+		if (is_overflow())
+			raz();
 		return *this;
 	}
 	Chrono& add_heure(int value){
 		_h += value;
+		if (is_overflow())
+			raz();
 		return *this;
 	}
 	void raz() {
