@@ -98,7 +98,7 @@ private :
 		return(_h > 23 || _m > MINUTE_PER_HOUR || _s > SEC_PER_MINUTE);
 	}
 };
-//
+//function for use of cin or cout for example
 ostream& operator<<(ostream& os, const Chrono& chrono){
 	return os << chrono.h() << ":" << chrono.m() << ":" << chrono.s();
 }
@@ -115,32 +115,33 @@ void test_function() {
 	Chrono test;
 	cout << "in test function nb instance : " << Chrono::nb_instance() << endl;
 }
-
+//test class Chrono 
 int main() {
+	//begin to test static counter of Chrono and use of destructor
 	Chrono test;
 	cout << "before test function nb instance : " << Chrono::nb_instance() << endl;
 	test_function();
 	cout << "after test function nb instance : " << Chrono::nb_instance() << endl;
-
+	//test of function operator<<
 	cout <<"first objet test : " << test << endl;
 	cout << "enter an time : format(hh:mm:ss) -> ";
 	try {
-		cin >> test;
+		cin >> test;//test of function operator>>
 	}
-	catch (string s) {
+	catch (string s) {//test of n operator= with throw i
 		cout << s << endl;
 		test = "0:0:0";
 		cout << "raz chronometer test  :" << test << endl ;
 	}
-	Chrono test1("1:2:3");	
+	Chrono test1("1:2:3");// test of Chrono(const string)
 	Chrono test3("1:2:3");
-	if (test1 == test3)
+	if (test1 == test3)// test of operator ==
 		cout << "ok" << endl;
-	int nb_seconds = test1;
+	int nb_seconds = test1;// test of operator int () const method
 	cout << "1:2:3 = " << nb_seconds<< " seconds" << endl;
 	try {
-		test += test1;
-		test += 3601;
+		test += test1;// test of operator+=(const Chrono &)
+		test += 3601;// test of operator+=(int)
 	}
 	catch (string s) {
 		cout << test << " "<< s << ":"<< "raz"<< endl;
@@ -148,7 +149,7 @@ int main() {
 	}
 	cout << test << endl;
 	try {
-		test.add_second(82861).add_minute(1).add_heure(1);
+		test.add_second(82861).add_minute(1).add_heure(1);// test of add function
 	}
 	catch (string s) {
 		cout << test << " " << s << ":" << "raz" << endl;
