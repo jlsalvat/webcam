@@ -26,21 +26,7 @@ public:
 	~Chrono() {
 		nb_object--;
 	}
-// string to Chrono conversion with throw error
-	Chrono& string_to_chrono(string heure) {
-		int first_separator = heure.find(':');
-		int second_separator = heure.rfind(':');
-		if (first_separator > 2 || (heure.size() - second_separator) > 2)
-			throw string("error format :") + heure;
-		string h = heure.substr(0, first_separator);
-		string m = heure.substr(first_separator + 1, 2);
-		string s = heure.substr(second_separator + 1, heure.size());
-		(*this)._h = stoi(h); (*this)._m = stoi(m); (*this)._s = stoi(s);
-		if (is_overflow()) {
-			throw string("error overflow ");
-		}
-		return *this;
-	}
+
 //add function
 	Chrono& add_second(int value) {
 		_s = (_s+value) % SEC_PER_MINUTE;
@@ -97,6 +83,21 @@ public:
 private :
 	bool is_overflow() {
 		return(_h > 23 || _m > MINUTE_PER_HOUR || _s > SEC_PER_MINUTE);
+	}
+// string to Chrono conversion with throw error
+	Chrono& string_to_chrono(string heure) {
+		int first_separator = heure.find(':');
+		int second_separator = heure.rfind(':');
+		if (first_separator > 2 || (heure.size() - second_separator) > 2)
+			throw string("error format :") + heure;
+		string h = heure.substr(0, first_separator);
+		string m = heure.substr(first_separator + 1, 2);
+		string s = heure.substr(second_separator + 1, heure.size());
+		(*this)._h = stoi(h); (*this)._m = stoi(m); (*this)._s = stoi(s);
+		if (is_overflow()) {
+			throw string("error overflow ");
+		}
+		return *this;
 	}
 };
 //function for use of cin or cout for example
