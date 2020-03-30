@@ -63,9 +63,11 @@ public:
 			raz();
 		return *this;
 	}
+//raz function
 	void raz() {
 		_h = _m = _s = 0;
 	}
+//operator functions
 	Chrono& operator+=(const Chrono& heure) {
 		(*this).add_second(heure.s()).add_minute(heure.m()).add_heure(heure.h());
 		return *this;
@@ -81,19 +83,18 @@ public:
 	bool operator==(const Chrono& heure) {
 		return (_h == heure.h() && _m == heure.m() && _s == heure.s());
 	}
-	//getter 
+//getter 
 	int      s() const { return _s; }
 	int       m() const { return _m; }
 	int       h() const { return _h; }
 	operator int () const {
 		return _h * MINUTE_PER_HOUR*SEC_PER_MINUTE + _m * SEC_PER_MINUTE + _s;
 	}
-	//static function
+//static function
 	static int nb_instance() {
 		return nb_object;
 	}
 private :
-	//method only for method of the class
 	bool is_overflow() {
 		return(_h > 23 || _m > MINUTE_PER_HOUR || _s > SEC_PER_MINUTE);
 	}
